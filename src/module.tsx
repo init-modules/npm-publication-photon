@@ -8,6 +8,7 @@ import {
 import { publicationArchiveFeedDefinition } from "./blocks/publication-archive-feed";
 import { publicationRichContentBindingAdapter } from "./binding-adapters/publication-rich-content";
 import { publicationArticleShellDefinition } from "./blocks/publication-article-shell";
+import { publicationWebsiteBuilderSiteFrameExtension } from "./sdk";
 
 export const publicationWebsiteBuilderModule: WebsiteBuilderModule = {
   module: "publication-website-builder",
@@ -23,4 +24,5 @@ export const publicationWebsiteBuilderKit: WebsiteBuilderInstallableKit =
     key: "publication-website-builder",
     label: "Publication Website Builder",
     modules: [publicationWebsiteBuilderModule],
+    siteFrameExtensions: [publicationWebsiteBuilderSiteFrameExtension],
   });
