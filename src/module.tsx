@@ -4,7 +4,7 @@ import {
   createWebsiteBuilderKit,
   type WebsiteBuilderInstallableKit,
   type WebsiteBuilderModule,
-} from "@init-modules/website-builder";
+} from "@init-modules/website-builder/public";
 import { publicationArchiveFeedDefinition } from "./blocks/publication-archive-feed";
 import { publicationRichContentBindingAdapter } from "./binding-adapters/publication-rich-content";
 import { publicationArticleShellDefinition } from "./blocks/publication-article-shell";

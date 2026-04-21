@@ -5,6 +5,12 @@
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"jsx": "react-jsx",
+		"baseUrl": ".",
+		"paths": {
+			"@init-modules/website-builder/public": [
+				"../../website-builder-foundation/website-builder/src/public.tsx"
+			]
+		},
 		"strict": true,
 		"skipLibCheck": true,
 		"noEmit": true,

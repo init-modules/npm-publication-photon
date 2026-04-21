@@ -11,7 +11,7 @@ import {
   useWebsiteBuilder,
   useWebsiteBuilderI18n,
   useWebsiteBuilderValueAtPath,
-} from "@init-modules/website-builder";
+} from "@init-modules/website-builder/public";
 
 type PublicationArchiveItem = {
   id: string;

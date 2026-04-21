@@ -1,7 +1,7 @@
 import {
 	createWebsiteBuilderSiteFrameExtension,
 	type WebsiteBuilderSiteFrameExtension,
-} from "@init-modules/website-builder";
+} from "@init-modules/website-builder/public";
 
 export const publicationWebsiteBuilderSiteFrameExtension: WebsiteBuilderSiteFrameExtension =
 	createWebsiteBuilderSiteFrameExtension({
