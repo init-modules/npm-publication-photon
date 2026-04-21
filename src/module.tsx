@@ -1,28 +1,28 @@
 "use client";
 
 import {
-  createWebsiteBuilderKit,
-  type WebsiteBuilderInstallableKit,
-  type WebsiteBuilderModule,
+	createWebsiteBuilderKit,
+	type WebsiteBuilderInstallableKit,
+	type WebsiteBuilderModule,
 } from "@init-modules/website-builder/public";
-import { publicationArchiveFeedDefinition } from "./blocks/publication-archive-feed";
 import { publicationRichContentBindingAdapter } from "./binding-adapters/publication-rich-content";
+import { publicationArchiveFeedDefinition } from "./blocks/publication-archive-feed";
 import { publicationArticleShellDefinition } from "./blocks/publication-article-shell";
 import { publicationWebsiteBuilderSiteFrameExtension } from "./sdk";
 
 export const publicationWebsiteBuilderModule: WebsiteBuilderModule = {
-  module: "publication-website-builder",
-  label: "Publication Website Builder",
-  labelKey: "publicationWebsiteBuilder.module.label",
-  version: "0.1.0",
-  bindingAdapters: [publicationRichContentBindingAdapter],
-  blocks: [publicationArchiveFeedDefinition, publicationArticleShellDefinition],
+	module: "publication-website-builder",
+	label: "Publication Website Builder",
+	labelKey: "publicationWebsiteBuilder.module.label",
+	version: "0.1.0",
+	bindingAdapters: [publicationRichContentBindingAdapter],
+	blocks: [publicationArchiveFeedDefinition, publicationArticleShellDefinition],
 };
 
 export const publicationWebsiteBuilderKit: WebsiteBuilderInstallableKit =
-  createWebsiteBuilderKit({
-    key: "publication-website-builder",
-    label: "Publication Website Builder",
-    modules: [publicationWebsiteBuilderModule],
-    siteFrameExtensions: [publicationWebsiteBuilderSiteFrameExtension],
-  });
+	createWebsiteBuilderKit({
+		key: "publication-website-builder",
+		label: "Publication Website Builder",
+		modules: [publicationWebsiteBuilderModule],
+		siteFrameExtensions: [publicationWebsiteBuilderSiteFrameExtension],
+	});
