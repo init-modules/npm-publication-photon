@@ -1,18 +1,18 @@
 "use client";
 
 import {
-	createWebsiteBuilderLocalizedDefault,
-	defineWebsiteBuilderBlockDefinition,
+	createPhotonLocalizedDefault,
+	definePhotonBlockDefinition,
 	EditableImage,
 	EditableRichText,
 	EditableText,
 	EditableTextarea,
-	useWebsiteBuilder,
-	useWebsiteBuilderI18n,
-	useWebsiteBuilderValueAtPath,
-	type WebsiteBuilderBlockComponentProps,
-	type WebsiteBuilderBlockDefinition,
-} from "@init-modules/website-builder/public";
+	usePhoton,
+	usePhotonI18n,
+	usePhotonValueAtPath,
+	type PhotonBlockComponentProps,
+	type PhotonBlockDefinition,
+} from "@init/photon/public";
 import clsx from "clsx";
 
 type PublicationArticleCategory = {
@@ -57,18 +57,18 @@ const formatPublicationDate = (value?: null | string, locale = "en") => {
 
 const PublicationArticleShell = ({
 	block,
-}: WebsiteBuilderBlockComponentProps<PublicationArticleShellProps>) => {
-	const { mode } = useWebsiteBuilder();
-	const { contentLocale } = useWebsiteBuilderI18n();
-	const publishedAt = useWebsiteBuilderValueAtPath(block.id, "publishedAt") as
+}: PhotonBlockComponentProps<PublicationArticleShellProps>) => {
+	const { mode } = usePhoton();
+	const { contentLocale } = usePhotonI18n();
+	const publishedAt = usePhotonValueAtPath(block.id, "publishedAt") as
 		| null
 		| string;
-	const categories = (useWebsiteBuilderValueAtPath(block.id, "categories") ??
+	const categories = (usePhotonValueAtPath(block.id, "categories") ??
 		[]) as PublicationArticleCategory[];
-	const archiveHref = (useWebsiteBuilderValueAtPath(block.id, "archiveHref") ??
+	const archiveHref = (usePhotonValueAtPath(block.id, "archiveHref") ??
 		"/") as string;
 	const entityLabel =
-		(useWebsiteBuilderValueAtPath(block.id, "entityLabel") as null | string) ??
+		(usePhotonValueAtPath(block.id, "entityLabel") as null | string) ??
 		block.props.eyebrow;
 
 	return (
@@ -145,22 +145,22 @@ const PublicationArticleShell = ({
 	);
 };
 
-export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<PublicationArticleShellProps> =
-	defineWebsiteBuilderBlockDefinition<PublicationArticleShellProps>({
+export const publicationArticleShellDefinition: PhotonBlockDefinition<PublicationArticleShellProps> =
+	definePhotonBlockDefinition<PublicationArticleShellProps>({
 		type: "publication-article-shell",
 		label: "Publication Article Shell",
-		labelKey: "publicationWebsiteBuilder.articleShell.label",
+		labelKey: "publicationPhoton.articleShell.label",
 		description:
 			"Single publication page where builder structure stays shared and content binds to the current record.",
-		descriptionKey: "publicationWebsiteBuilder.articleShell.description",
+		descriptionKey: "publicationPhoton.articleShell.description",
 		category: "Publication",
 		icon: "file-text",
 		defaults: {
-			eyebrow: createWebsiteBuilderLocalizedDefault({
+			eyebrow: createPhotonLocalizedDefault({
 				en: "Publication",
 				ru: "Публикация",
 			}),
-			backLabel: createWebsiteBuilderLocalizedDefault({
+			backLabel: createPhotonLocalizedDefault({
 				en: "Back to archive",
 				ru: "Назад в архив",
 			}),
@@ -186,7 +186,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 				source: "publication",
 				path: "content",
 				mode: "write",
-				adapter: "publication-website-builder::rich-content-json",
+				adapter: "publication-photon::rich-content-json",
 			},
 			previewImage: {
 				source: "publication",
@@ -218,7 +218,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 			{
 				path: "eyebrow",
 				label: "Eyebrow",
-				labelKey: "publicationWebsiteBuilder.articleShell.eyebrow.label",
+				labelKey: "publicationPhoton.articleShell.eyebrow.label",
 				kind: "text",
 				group: "content",
 				localization: "localized",
@@ -226,7 +226,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 			{
 				path: "backLabel",
 				label: "Back label",
-				labelKey: "publicationWebsiteBuilder.articleShell.backLabel.label",
+				labelKey: "publicationPhoton.articleShell.backLabel.label",
 				kind: "text",
 				group: "content",
 				localization: "localized",
@@ -234,7 +234,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 			{
 				path: "showExcerpt",
 				label: "Show excerpt",
-				labelKey: "publicationWebsiteBuilder.articleShell.showExcerpt.label",
+				labelKey: "publicationPhoton.articleShell.showExcerpt.label",
 				kind: "toggle",
 				group: "content",
 				localization: "shared",
@@ -242,7 +242,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 			{
 				path: "showCover",
 				label: "Show cover",
-				labelKey: "publicationWebsiteBuilder.articleShell.showCover.label",
+				labelKey: "publicationPhoton.articleShell.showCover.label",
 				kind: "toggle",
 				group: "content",
 				localization: "shared",
@@ -250,7 +250,7 @@ export const publicationArticleShellDefinition: WebsiteBuilderBlockDefinition<Pu
 			{
 				path: "showMeta",
 				label: "Show meta",
-				labelKey: "publicationWebsiteBuilder.articleShell.showMeta.label",
+				labelKey: "publicationPhoton.articleShell.showMeta.label",
 				kind: "toggle",
 				group: "content",
 				localization: "shared",

@@ -1,16 +1,16 @@
 "use client";
 
 import {
-	createWebsiteBuilderLocalizedDefault,
-	defineWebsiteBuilderBlockDefinition,
+	createPhotonLocalizedDefault,
+	definePhotonBlockDefinition,
 	EditableText,
 	EditableTextarea,
-	useWebsiteBuilder,
-	useWebsiteBuilderI18n,
-	useWebsiteBuilderValueAtPath,
-	type WebsiteBuilderBlockComponentProps,
-	type WebsiteBuilderBlockDefinition,
-} from "@init-modules/website-builder/public";
+	usePhoton,
+	usePhotonI18n,
+	usePhotonValueAtPath,
+	type PhotonBlockComponentProps,
+	type PhotonBlockDefinition,
+} from "@init/photon/public";
 import clsx from "clsx";
 
 type PublicationArchiveItem = {
@@ -56,10 +56,10 @@ const formatPublicationDate = (value?: null | string, locale = "en") => {
 
 const PublicationArchiveFeed = ({
 	block,
-}: WebsiteBuilderBlockComponentProps<PublicationArchiveFeedProps>) => {
-	const { mode } = useWebsiteBuilder();
-	const { contentLocale } = useWebsiteBuilderI18n();
-	const rawItems = useWebsiteBuilderValueAtPath(block.id, "items");
+}: PhotonBlockComponentProps<PublicationArchiveFeedProps>) => {
+	const { mode } = usePhoton();
+	const { contentLocale } = usePhotonI18n();
+	const rawItems = usePhotonValueAtPath(block.id, "items");
 	const items = Array.isArray(rawItems)
 		? (rawItems as PublicationArchiveItem[])
 		: [];
@@ -149,38 +149,38 @@ const PublicationArchiveFeed = ({
 	);
 };
 
-export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<PublicationArchiveFeedProps> =
-	defineWebsiteBuilderBlockDefinition<PublicationArchiveFeedProps>({
+export const publicationArchiveFeedDefinition: PhotonBlockDefinition<PublicationArchiveFeedProps> =
+	definePhotonBlockDefinition<PublicationArchiveFeedProps>({
 		type: "publication-archive-feed",
 		label: "Publication Archive Feed",
-		labelKey: "publicationWebsiteBuilder.archiveFeed.label",
+		labelKey: "publicationPhoton.archiveFeed.label",
 		description:
 			"Archive intro plus live publication cards for the current entity route.",
-		descriptionKey: "publicationWebsiteBuilder.archiveFeed.description",
+		descriptionKey: "publicationPhoton.archiveFeed.description",
 		category: "Publication",
 		icon: "files",
 		defaults: {
-			eyebrow: createWebsiteBuilderLocalizedDefault({
+			eyebrow: createPhotonLocalizedDefault({
 				en: "Publication",
 				ru: "Публикации",
 			}),
-			title: createWebsiteBuilderLocalizedDefault({
+			title: createPhotonLocalizedDefault({
 				en: "Archive",
 				ru: "Архив",
 			}),
-			body: createWebsiteBuilderLocalizedDefault({
+			body: createPhotonLocalizedDefault({
 				en: "Template-owned intro copy sits above the live publication feed.",
 				ru: "Вступительный текст шаблона расположен над живой лентой публикаций.",
 			}),
-			emptyTitle: createWebsiteBuilderLocalizedDefault({
+			emptyTitle: createPhotonLocalizedDefault({
 				en: "No publications yet",
 				ru: "Публикаций пока нет",
 			}),
-			emptyBody: createWebsiteBuilderLocalizedDefault({
+			emptyBody: createPhotonLocalizedDefault({
 				en: "Publish the first record to unlock this archive.",
 				ru: "Опубликуйте первую запись, чтобы открыть этот архив.",
 			}),
-			cardCtaLabel: createWebsiteBuilderLocalizedDefault({
+			cardCtaLabel: createPhotonLocalizedDefault({
 				en: "Open publication",
 				ru: "Открыть публикацию",
 			}),
@@ -200,7 +200,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "eyebrow",
 				label: "Eyebrow",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.eyebrow.label",
+				labelKey: "publicationPhoton.archiveFeed.eyebrow.label",
 				kind: "text",
 				group: "content",
 				localization: "localized",
@@ -208,7 +208,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "title",
 				label: "Title",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.title.label",
+				labelKey: "publicationPhoton.archiveFeed.title.label",
 				kind: "text",
 				group: "content",
 				localization: "localized",
@@ -216,7 +216,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "body",
 				label: "Body",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.body.label",
+				labelKey: "publicationPhoton.archiveFeed.body.label",
 				kind: "textarea",
 				group: "content",
 				localization: "localized",
@@ -224,7 +224,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "emptyTitle",
 				label: "Empty title",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.emptyTitle.label",
+				labelKey: "publicationPhoton.archiveFeed.emptyTitle.label",
 				kind: "text",
 				group: "content",
 				localization: "localized",
@@ -232,7 +232,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "emptyBody",
 				label: "Empty body",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.emptyBody.label",
+				labelKey: "publicationPhoton.archiveFeed.emptyBody.label",
 				kind: "textarea",
 				group: "content",
 				localization: "localized",
@@ -247,7 +247,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "columns",
 				label: "Columns",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.columns.label",
+				labelKey: "publicationPhoton.archiveFeed.columns.label",
 				kind: "number",
 				group: "layout",
 				min: 1,
@@ -258,7 +258,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "showExcerpt",
 				label: "Show excerpt",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.showExcerpt.label",
+				labelKey: "publicationPhoton.archiveFeed.showExcerpt.label",
 				kind: "toggle",
 				group: "content",
 				localization: "shared",
@@ -266,7 +266,7 @@ export const publicationArchiveFeedDefinition: WebsiteBuilderBlockDefinition<Pub
 			{
 				path: "showImage",
 				label: "Show image",
-				labelKey: "publicationWebsiteBuilder.archiveFeed.showImage.label",
+				labelKey: "publicationPhoton.archiveFeed.showImage.label",
 				kind: "toggle",
 				group: "content",
 				localization: "shared",

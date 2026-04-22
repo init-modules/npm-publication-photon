@@ -1,10 +1,10 @@
 import {
-	createWebsiteBuilderSiteFrameExtension,
-	type WebsiteBuilderSiteFrameExtension,
-} from "@init-modules/website-builder/public";
+	createPhotonSiteFrameExtension,
+	type PhotonSiteFrameExtension,
+} from "@init/photon/public";
 
-export const publicationWebsiteBuilderSiteFrameExtension: WebsiteBuilderSiteFrameExtension =
-	createWebsiteBuilderSiteFrameExtension({
+export const publicationPhotonSiteFrameExtension: PhotonSiteFrameExtension =
+	createPhotonSiteFrameExtension({
 		id: "publication",
 		label: "Publication",
 		order: 40,

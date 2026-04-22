@@ -1,7 +1,7 @@
 {
-	"name": "@init-modules/publication-website-builder",
+	"name": "@init/publication-photon",
 	"version": "0.1.0",
-	"description": "Publication block kit for the package-first website builder.",
+	"description": "Publication block kit for the package-first photon.",
 	"type": "module",
 	"main": "./src/index.ts",
 	"module": "./src/index.ts",
@@ -14,21 +14,21 @@
 		"clsx": "^2.1.1"
 	},
 	"peerDependencies": {
-		"@init-modules/publication": "^0.1.0",
-		"@init-modules/website-builder": "^0.1.0",
+		"@init/publication": "^0.1.0",
+		"@init/photon": "^0.1.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
-		"@init-modules/publication": "file:../publication",
-		"@init-modules/website-builder": "file:../../website-builder-foundation/website-builder",
+		"@init/publication": "file:../publication",
+		"@init/photon": "file:../../photon-foundation/photon",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"typescript": "^5.9.3"
 	},
-	"websiteBuilder": {
-		"installableKitExport": "publicationWebsiteBuilderKit",
-		"publicInstallableKitExport": "publicationPublicWebsiteBuilderKit",
-		"publicInstallableKitImportPath": "@init-modules/publication-website-builder/public"
+	"photon": {
+		"installableKitExport": "publicationPhotonKit",
+		"publicInstallableKitExport": "publicationPublicPhotonKit",
+		"publicInstallableKitImportPath": "@init/publication-photon/public"
 	}
 }

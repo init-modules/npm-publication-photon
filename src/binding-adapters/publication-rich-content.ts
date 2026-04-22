@@ -1,9 +1,9 @@
 import {
-	getWebsiteBuilderAnchorRel,
-	sanitizeWebsiteBuilderLinkHref,
-	sanitizeWebsiteBuilderRichTextHtml,
-	type WebsiteBuilderBindingAdapter,
-} from "@init-modules/website-builder/public";
+	getPhotonAnchorRel,
+	sanitizePhotonLinkHref,
+	sanitizePhotonRichTextHtml,
+	type PhotonBindingAdapter,
+} from "@init/photon/public";
 
 const escapeHtml = (value: string) =>
 	value
@@ -15,7 +15,7 @@ const escapeAttribute = (value: string) =>
 	escapeHtml(value).replaceAll('"', "&quot;");
 
 const normalizeHref = (value: unknown) => {
-	const sanitizedHref = sanitizeWebsiteBuilderLinkHref(value, "");
+	const sanitizedHref = sanitizePhotonLinkHref(value, "");
 
 	return sanitizedHref === "" ? null : sanitizedHref;
 };
@@ -57,7 +57,7 @@ const renderMarks = (html: string, marks: unknown): string => {
 						: "";
 				const target =
 					source.attrs?.target === "_blank" ? ` target="_blank"` : "";
-				const rel = getWebsiteBuilderAnchorRel(
+				const rel = getPhotonAnchorRel(
 					source.attrs?.target,
 					source.attrs?.rel,
 				);
@@ -116,12 +116,12 @@ const renderProseMirrorNode = (node: unknown): string => {
 	}
 };
 
-export const publicationRichContentBindingAdapter: WebsiteBuilderBindingAdapter =
+export const publicationRichContentBindingAdapter: PhotonBindingAdapter =
 	{
-		key: "publication-website-builder::rich-content-json",
+		key: "publication-photon::rich-content-json",
 		read: (value) => {
 			if (typeof value === "string") {
-				return sanitizeWebsiteBuilderRichTextHtml(value);
+				return sanitizePhotonRichTextHtml(value);
 			}
 
 			if (!value || typeof value !== "object") {
@@ -134,6 +134,6 @@ export const publicationRichContentBindingAdapter: WebsiteBuilderBindingAdapter 
 				? document.content.map(renderProseMirrorNode).join("")
 				: "";
 
-			return sanitizeWebsiteBuilderRichTextHtml(html);
+			return sanitizePhotonRichTextHtml(html);
 		},
 	};
