@@ -1,0 +1,7 @@
+{
+	"project_slug": "publication-photon",
+	"name": "@init/publication-photon",
+	"entry_type": "package",
+	"scope": "package:@init/publication-photon",
+	"package_name": "@init/publication-photon"
+}
